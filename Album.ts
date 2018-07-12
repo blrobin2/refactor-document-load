@@ -25,9 +25,7 @@ export default class Album
   }
 
   getTrackListing(): ReadonlyArray<string> {
-    return [...this.getTracks()]
-      .sort((a, b) => <any>a.getTitle() - <any>b.getTitle())
-      .map(
+    return Array.from(this.getTracks(),
         (t: Track) =>
           `${this.artist} - ${t.getTitle()} (${t.getLengthAsTimestamp()}) : "${this.title}"`
       );
